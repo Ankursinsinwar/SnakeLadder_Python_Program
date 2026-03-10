@@ -11,11 +11,18 @@ def rollDice():
 def option(pos, dice):
     option=random.randint(0,2)
     if(option==0):
-        print("No move")
+        pass
     elif(option==1):
-        print("Ladder")
         pos+=dice
     else:
-        print("Snake")
         pos-=dice
+        if pos<0 :
+            pos=0
     return pos
+
+while(pos<100):
+    dice=rollDice()
+    pos=option(pos,dice)
+
+if(pos>=100):
+    print("Player win!")
