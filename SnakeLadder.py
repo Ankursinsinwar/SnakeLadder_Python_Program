@@ -13,7 +13,8 @@ def option(pos, dice):
     if(option==0):
         pass
     elif(option==1):
-        pos+=dice
+        if(pos+dice<=100):
+            pos+=dice
     else:
         pos-=dice
         if pos<0 :
