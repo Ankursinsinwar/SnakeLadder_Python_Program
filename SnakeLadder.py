@@ -1,9 +1,12 @@
 import random
 
-pos = 0
+pos1 = 0
+pos2 = 0
 print("Welcome to Snake And Ladder program")
-print("Single player at start position ", pos)
-dice_count = 0
+print("Single players at start position 0")
+
+dice_count1 = 0
+dice_count2 = 0
 
 def rollDice():
     dice = random.randint(1,6)
@@ -20,15 +23,24 @@ def option(pos, dice):
         pos-=dice
         if pos<0 :
             pos=0
-    print("pos: ",pos)
     return pos
 
-while(pos<100):
+while(pos1<100 and pos2<100):
+
     dice=rollDice()
-    pos=option(pos,dice)
-    dice_count += 1
+    pos1=option(pos1,dice)
+    print("position of player 1: ",pos1)
+    dice_count1 += 1
+    if(pos1>=100):
+        print("Player 1 win!")
+        print("Total Dice count: ", dice_count1)
+        break
 
-if(pos>=100):
-    print("Player win!")
-
-print("Total Dice count: ", dice_count)
+    dice=rollDice()
+    pos2=option(pos2,dice)
+    print("position of player 2: ",pos2)
+    dice_count2 += 1
+    if(pos2>=100):
+        print("Player 2 win!")
+        print("Total Dice count: ", dice_count2)
+        break
